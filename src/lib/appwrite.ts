@@ -2,7 +2,7 @@ import { Client, Account } from "appwrite";
 
 const client = new Client();
 client
-    .setEndpoint() // Your API Endpoint
-    .setProject("5fca2f3d5fbf3") // Your project ID
+    .setEndpoint(process.env.NEXT_APPWRITE_API_ENDPOINT!) // Your API Endpoint
+    .setProject(process.env.NEXT_APPWRITE_PROJECT_ID!) // Your project ID
 
 export const account = new Account(client);
