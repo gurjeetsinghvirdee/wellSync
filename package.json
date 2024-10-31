@@ -1,5 +1,5 @@
 {
-  "name": "fitness-tracker",
+  "name": "wellSync",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/chart.js": "^2.9.41",
     "appwrite": "^16.0.2",
+    "chart.js": "^4.4.6",
     "dotenv": "^16.4.5",
     "gapi-client": "^0.0.3",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "19.0.0-rc-02c0e824-20241028"
   },
   "devDependencies": {

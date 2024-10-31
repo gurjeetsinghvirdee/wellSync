@@ -22,6 +22,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <h1 className="text-xl font-bold">Fitness Tracker & Wellness Journal</h1>
           <nav>
             <Link href="/workout">Workout Log</Link>
+            <Link href="/nutrition">Nutrition</Link>
+            <Link href="/dashboard">Dashboard</Link>
           </nav>
         </header>
         <main className="flex-grow p-4">{children}</main>
