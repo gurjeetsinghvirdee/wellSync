@@ -1,12 +1,17 @@
-const API_KEY = process.env.NEXT_PUBLIC_YOUR_USDA_API_KEY!;
+import axios from 'axios';
 
-export const getNutritionInfo = async (food: string) => {
-    try {
-        const response = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${API_KEY}&query=${food}`);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching nutrition info: ', error);
-        throw new Error('Error fetching nutrition info');
-    }
+export const getNutritionInfo = async (query: string) => {
+  const apiKey = process.env.NEXT_PUBLIC_CALORIE_YOUR_API_KEY! // Replace with your actual API key
+  const url = `https://api.calorieninjas.com/v1/nutrition?query=${query}`;
+  const headers = {
+    'X-Api-Key': apiKey,
+  };
+
+  try {
+    const response = await axios.get(url, { headers });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching nutrition info:', error);
+    throw error;
+  }
 };
