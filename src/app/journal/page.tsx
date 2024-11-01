@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { databases } from 'src/lib/appwrite';
+import 'src/styles/globals.css';
 
 const Journal = () => {
   const [entry, setEntry] = useState('');
@@ -14,8 +15,8 @@ const Journal = () => {
     const fetchEntries = async () => {
       try {
         const response = await databases.listDocuments(
-          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!, 
-          process.env.NEXT_PUBLIC_APPWRITE_JOURNAL_COLLECTION_ID! 
+          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
+          process.env.NEXT_PUBLIC_APPWRITE_JOURNAL_COLLECTION_ID!
         );
         setEntries(response.documents);
       } catch (error) {
@@ -30,8 +31,8 @@ const Journal = () => {
       try {
         const date = new Date().toISOString();
         await databases.createDocument(
-          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!, 
-          process.env.NEXT_PUBLIC_APPWRITE_JOURNAL_COLLECTION_ID!, 
+          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
+          process.env.NEXT_PUBLIC_APPWRITE_JOURNAL_COLLECTION_ID!,
           'unique()',
           {
             entry,
@@ -53,9 +54,9 @@ const Journal = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 text-white">
-      <header className="text-center py-10 w-full animate-slideIn">
-        <h2 className="text-4xl font-bold mb-4">Daily Wellness Journal</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white text-gray-800">
+      <header className="text-center py-10 w-full animate-slideIn border-b border-gray-300">
+        <h2 className="text-4xl font-bold mb-4 text-pink-600">Daily Wellness Journal</h2>
       </header>
       <main className="flex-grow flex flex-col items-center justify-center w-full px-4">
         <div className="text-center mb-10 animate-fadeIn">
@@ -63,13 +64,13 @@ const Journal = () => {
             value={entry}
             onChange={(e) => setEntry(e.target.value)}
             placeholder="Write about your day..."
-            className="mb-4 p-2 rounded-md text-black w-full"
+            className="mb-4 p-2 rounded-md text-black w-full border border-pink-200"
             rows={4}
           />
           <select
             value={mood}
             onChange={(e) => setMood(e.target.value)}
-            className="mb-4 p-2 rounded-md text-black w-full"
+            className="mb-4 p-2 rounded-md text-black w-full border border-pink-200"
           >
             <option value="" disabled>Select your mood</option>
             <option value="happy">Happy</option>
@@ -78,7 +79,7 @@ const Journal = () => {
             <option value="angry">Angry</option>
           </select>
           <div className="mb-4">
-            <label className="block text-black mb-2">Tags:</label>
+            <label className="block text-gray-800 mb-2">Tags:</label>
             <div className="flex flex-wrap">
               {['exercise', 'diet', 'mental health', 'sleep'].map((tag) => (
                 <label key={tag} className="flex items-center mr-4">
@@ -102,19 +103,19 @@ const Journal = () => {
           </div>
           <button
             onClick={handleAddEntry}
-            className="bg-white text-primary py-2 px-6 rounded-full shadow-lg hover:bg-gray-100 transition transform hover:scale-105"
+            className="bg-pink-600 text-white py-2 px-6 rounded-full shadow-lg hover:bg-pink-700 transition transform hover:scale-105"
           >
             Add Entry
           </button>
-          {message && <p className="mt-4">{message}</p>}
+          {message && <p className="mt-4 text-pink-600">{message}</p>}
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-5xl animate-fadeIn">
           {entries.map((entry, index) => (
             <li 
               key={index} 
-              className="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition transform hover:-translate-y-1 text-primary"
+              className="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition transform hover:-translate-y-1 border border-pink-200 text-primary"
             >
-              <p className="font-bold">{entry.mood}</p>
+              <p className="font-bold text-pink-600">{entry.mood}</p>
               <p>{entry.entry}</p>
               <p className="text-sm">{new Date(entry.date).toLocaleString()}</p>
               <div className="flex flex-wrap">
@@ -126,7 +127,7 @@ const Journal = () => {
           ))}
         </ul>
       </main>
-      <footer className="py-4 w-full text-center bg-gradient-to-r from-pink-600 via-purple-700 to-blue-700">
+      <footer className="py-4 w-full text-center bg-pink-600">
         <p className="text-white">&copy; 2024 Fitness Tracker & Wellness Journal. All rights reserved.</p>
       </footer>
     </div>

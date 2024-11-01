@@ -1,8 +1,15 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { account } from 'src/lib/appwrite';
+import { Client, Account } from 'appwrite';
 import 'src/styles/globals.css';
+
+// Initialize Appwrite client
+const client = new Client()
+  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_API_ENDPOINT!) // Your API Endpoint
+  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!); // Your project ID
+
+const account = new Account(client);
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -22,9 +29,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-indigo-300 via-purple-300 to-pink-300">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h1 className="text-2xl font-semibold mb-6 text-center">Login</h1>
+    <div className="flex items-center justify-center h-screen bg-white text-gray-800">
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full border border-pink-200">
+        <h1 className="text-2xl font-semibold mb-6 text-center text-pink-600">Login</h1>
         
         <input
           type="email"
@@ -44,7 +51,7 @@ const Login = () => {
         
         <button
           onClick={handleLogin}
-          className="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition transform hover:scale-105"
+          className="w-full bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition transform hover:scale-105"
         >
           Log In
         </button>
@@ -53,7 +60,7 @@ const Login = () => {
         
         <p className="text-center mt-4">
           Don’t have an account?{' '}
-          <a href="/signup" className="text-blue-500 hover:underline">
+          <a href="/signup" className="text-pink-600 hover:underline">
             Sign up
           </a>
         </p>

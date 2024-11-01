@@ -6,7 +6,7 @@ import 'src/styles/globals.css';
 const Profile = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); // Add password state
+  const [password, setPassword] = useState('');
   const [bio, setBio] = useState('');
   const [message, setMessage] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -48,9 +48,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white">
-      <header className="text-center py-10 w-full animate-slideIn">
-        <h2 className="text-4xl font-bold mb-4">Update Your Profile</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white text-gray-800">
+      <header className="text-center py-10 w-full animate-slideIn border-b border-gray-300">
+        <h2 className="text-4xl font-bold mb-4 text-pink-600">Update Your Profile</h2>
       </header>
       <main className="flex-grow flex flex-col items-center justify-center w-full px-4">
         <div className="text-center mb-10 animate-fadeIn">
@@ -59,39 +59,39 @@ const Profile = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username"
-            className="mb-4 p-2 rounded-md text-black"
+            className="mb-4 p-2 rounded-md text-black w-full border border-pink-200"
           />
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
-            className="mb-4 p-2 rounded-md text-black"
+            className="mb-4 p-2 rounded-md text-black w-full border border-pink-200"
           />
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="mb-4 p-2 rounded-md text-black"
+            className="mb-4 p-2 rounded-md text-black w-full border border-pink-200"
           />
           <textarea
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             placeholder="Bio"
-            className="mb-4 p-2 rounded-md text-black w-full"
+            className="mb-4 p-2 rounded-md text-black w-full border border-pink-200"
             rows={4}
           />
           <button 
             onClick={handleUpdateProfile} 
-            className="bg-white text-primary py-2 px-6 rounded-full shadow-lg hover:bg-gray-100 transition transform hover:scale-105"
+            className="bg-pink-600 text-white py-2 px-6 rounded-full shadow-lg hover:bg-pink-700 transition transform hover:scale-105"
           >
             Update Profile
           </button>
-          {message && <p className="mt-4">{message}</p>}
+          {message && <p className="mt-4 text-pink-600">{message}</p>}
         </div>
       </main>
-      <footer className="py-4 w-full text-center bg-gradient-to-r from-green-600 via-blue-700 to-purple-700">
+      <footer className="py-4 w-full text-center bg-pink-600">
         <p className="text-white">&copy; 2024 Fitness Tracker & Wellness Journal. All rights reserved.</p>
       </footer>
     </div>

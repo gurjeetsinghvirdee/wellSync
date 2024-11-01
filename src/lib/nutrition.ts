@@ -1,4 +1,4 @@
-const API_KEY = process.env.NEXT_YOUR_USDA_API_KEY!;
+const API_KEY = process.env.NEXT_PUBLIC_YOUR_USDA_API_KEY!;
 
 export const getNutritionInfo = async (food: string) => {
     try {
