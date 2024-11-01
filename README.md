@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WellSync
+
+**WellSync** is a comprehensive wellness tracking web app designed to empower users in their fitness journey. Users can log activities, track nutrition, and journal their daily wellness experiences in one place. Built with Next.js, TypeScript, and Tailwind CSS for an intuitive frontend and Appwrite Cloud for backend services, WellSync offers a streamlined, data-driven approach to personal health management.
+
+## Table of Contents
+
+- [WellSync](#wellsync)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+    - [User Authentication](#user-authentication)
+    - [Activity Log](#activity-log)
+    - [Nutrition Tracker](#nutrition-tracker)
+    - [Progress Charts](#progress-charts)
+    - [Wellness Journal](#wellness-journal)
+    - [Dashboard](#dashboard)
+  - [Technology Stack](#technology-stack)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [API Integrations](#api-integrations)
+    - [File Structure](#file-structure)
+  - [License](#license)
+
+---
+
+## Features
+
+### User Authentication
+- **Sign Up / Log In**: Secure authentication using Appwrite.
+- **Profile Management**: Users can update profile details such as age, weight, and fitness goals.
+
+### Activity Log
+- **Workouts**: Log workouts manually or sync with APIs (e.g., Google Fit, Fitbit) to track exercise activities.
+- **Steps & Heart Rate**: Automatic daily sync of step count and heart rate from connected fitness devices.
+
+### Nutrition Tracker
+- **Meal Logging**: Record daily meals and monitor intake.
+- **Nutritional Info**: Integration with a nutrition API to fetch caloric and macronutrient data for better tracking.
+
+### Progress Charts
+- **Visualization**: Track and display wellness data with interactive charts using Chart.js or D3.js to help visualize progress over time.
+
+### Wellness Journal
+- **Daily Entries**: Record daily reflections on wellness and track habits.
+- **Moods & Tags**: Add tags and moods to entries for deeper insights into wellness trends.
+
+### Dashboard
+- **Overview**: View a summary of recent activities, nutrition, and journal entries in one place.
+- **User Insights**: Get personalized insights and tips based on activity data.
+
+---
+
+## Technology Stack
+
+- **Frontend**: Next.js, TypeScript, Tailwind CSS
+- **Backend**: Appwrite Cloud for user authentication, database, storage, and functions
+- **APIs**: Google Fit API, Calorie Ninja, USDA FoodData Central (for nutritional data)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js
+- NPM or Yarn
+- Appwrite Cloud Account
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   git clone https://github.com/username/wellsync.git
+   cd wellsync
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies
 
-## Learn More
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Set up environment variables:
+- Create a `.env` file at the root of the project and add your API keys and Appwrite configuration:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    # Appwrite
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    NEXT_PUBLIC_APPWRITE_PROJECT_ID
+    NEXT_PUBLIC_APPWRITE_API_ENDPOINT
+    NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    NEXT_PUBLIC_APPWRITE_API
+    NEXT_PUBLIC_APPWRITE_WORKOUTS_COLLECTION_ID
+    NEXT_PUBLIC_APPWRITE_JOURNAL_COLLECTION_ID
 
-## Deploy on Vercel
+    # CalorieNinja
+    NEXT_PUBLIC_CALORIE_YOUR_API_KEY
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    # Google Fit
+    NEXT_PUBLIC_GOOGLE_API_KEY
+    NEXT_PUBLIC_GOOGLE_CLIENT_ID
+    NEXT_PUBLIC_GOOGLE_REDIRECT_URI
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+5. Visit `http://localhost:3000` in your browser to see the app.
+
+
+### API Integrations
+1. **Google Fit API**: Syncs daily steps, heart rate, and workout data.
+2. **Nutrition API - Calorie Ninja**: Fetches nutritional information for meal entries.
+
+### File Structure
+
+wellsync/
+├── components/         # Reusable components
+├── pages/              # Next.js pages
+├── styles/             # Tailwind CSS and global styles
+├── libs/               # Lib functions
+├── public/             # Static assets
+└── README.md           # Project README
+
+## License
+This project is licensed under the BSD 3-Clause [License](https://github.com/gurjeetsinghvirdee/wellSync/blob/master/LICENSE). See the LICENSE file for more details.
