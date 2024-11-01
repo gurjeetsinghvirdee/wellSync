@@ -17,8 +17,6 @@
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-    - [API Integrations](#api-integrations)
-    - [File Structure](#file-structure)
   - [License](#license)
 
 ---
@@ -116,6 +114,7 @@
 
 ### File Structure
 
+```bash
 wellsync/
 ├── components/         # Reusable components
 ├── pages/              # Next.js pages
@@ -123,6 +122,7 @@ wellsync/
 ├── libs/               # Lib functions
 ├── public/             # Static assets
 └── README.md           # Project README
+```
 
 ## License
 This project is licensed under the BSD 3-Clause [License](https://github.com/gurjeetsinghvirdee/wellSync/blob/master/LICENSE). See the LICENSE file for more details.
