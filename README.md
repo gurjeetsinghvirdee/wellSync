@@ -1,3 +1,5 @@
+![Screenshot 2024-11-01 065848](https://github.com/user-attachments/assets/99803fc9-d01f-4f57-b433-3592c66d1872)
+
 # WellSync
 
 **WellSync** is a comprehensive wellness tracking web app designed to empower users in their fitness journey. Users can log activities, track nutrition, and journal their daily wellness experiences in one place. Built with Next.js, TypeScript, and Tailwind CSS for an intuitive frontend and Appwrite Cloud for backend services, WellSync offers a streamlined, data-driven approach to personal health management.
@@ -68,8 +70,8 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/username/wellsync.git
-   cd wellsync
+   git clone https://github.com/username/wellSync.git
+   cd wellSync
 
 2. Install dependencies
 
