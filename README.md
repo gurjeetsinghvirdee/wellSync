@@ -114,17 +114,5 @@
 1. **Google Fit API**: Syncs daily steps, heart rate, and workout data.
 2. **Nutrition API - Calorie Ninja**: Fetches nutritional information for meal entries.
 
-### File Structure
-
-```bash
-wellsync/
-├── components/         # Reusable components
-├── pages/              # Next.js pages
-├── styles/             # Tailwind CSS and global styles
-├── libs/               # Lib functions
-├── public/             # Static assets
-└── README.md           # Project README
-```
-
 ## License
 This project is licensed under the BSD 3-Clause [License](https://github.com/gurjeetsinghvirdee/wellSync/blob/master/LICENSE). See the LICENSE file for more details.
